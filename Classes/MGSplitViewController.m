@@ -247,8 +247,10 @@
 	}
 	
 	// Account for status bar, which always subtracts from the height (since it's always at the top of the screen).
-	height -= statusBarHeight;
-	
+	if (DV_SYSTEM_VERSION_LESS_THAN(@"7.0")) {
+        height -= statusBarHeight;
+	}
+   
 	return CGSizeMake(width, height);
 }
 
