@@ -242,8 +242,8 @@
 	
 	// Correct for orientation.
 	if (UIInterfaceOrientationIsLandscape(theOrientation)) {
-		width = height;
-		height = fullScreenRect.size.width;
+		width = MAX(height, fullScreenRect.size.width);
+		height = MIN(height, fullScreenRect.size.width);;
 	}
 	
 	// Account for status bar, which always subtracts from the height (since it's always at the top of the screen).
